@@ -199,22 +199,22 @@ def get_image_date(image_path):
     """
     image_date = None
 
-    if image_path.lower().endswith(".jpeg") or image_path.lower().endswith(".jpg"):
-        image = Image.open(image_path)
-        exif = image._getexif()
-        image.close()
+    # if image_path.lower().endswith(".jpeg") or image_path.lower().endswith(".jpg"):
+    #     image = Image.open(image_path)
+    #     exif = image._getexif()
+    #     image.close()
 
-        if exif:
-            if EXIF_TAG_MAP["DateTimeOriginal"] in exif:
-                image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTimeOriginal"]])
-            elif EXIF_TAG_MAP["DateTimeDigitized"] in exif:
-                image_date = parse_exif_datetime(
-                    exif[EXIF_TAG_MAP["DateTimeDigitized"]]
-                )
-            elif EXIF_TAG_MAP["DateTime"] in exif:
-                image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTime"]])
+    #     if exif:
+    #         if EXIF_TAG_MAP["DateTimeOriginal"] in exif:
+    #             image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTimeOriginal"]])
+    #         elif EXIF_TAG_MAP["DateTimeDigitized"] in exif:
+    #             image_date = parse_exif_datetime(
+    #                 exif[EXIF_TAG_MAP["DateTimeDigitized"]]
+    #             )
+    #         elif EXIF_TAG_MAP["DateTime"] in exif:
+    #             image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTime"]])
 
-    if not image_date:
+    # if not image_date:
         image_date = datetime.fromtimestamp(os.path.getatime(image_path))
 
     return image_date
