@@ -200,7 +200,7 @@ def get_image_date(image_path):
     image_date = None
 
     #image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
-    image_date = " October 10 2019"
+    image_date = datetime.datetime.now() - datetime.timedelta(days=3*365)
 
     return image_date
 
