@@ -217,7 +217,7 @@ def get_image_date(image_path):
                 image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTime"]])
 
     if not image_date:
-        image_date = datetime.fromtimestamp(os.path.getatime(image_path))
+        image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
 
     return image_date
 
