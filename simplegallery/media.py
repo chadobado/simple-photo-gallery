@@ -198,27 +198,9 @@ def get_image_date(image_path):
     :return: The date the image was taken
     """
     image_date = None
-    image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
-    print("Image date:"+image_date)
-    return image_date
 
-    if image_path.lower().endswith(".jpeg") or image_path.lower().endswith(".jpg"):
-        image = Image.open(image_path)
-        exif = image._getexif()
-        image.close()
-
-        if exif:
-            if EXIF_TAG_MAP["DateTimeOriginal"] in exif:
-                image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTimeOriginal"]])
-            elif EXIF_TAG_MAP["DateTimeDigitized"] in exif:
-                image_date = parse_exif_datetime(
-                    exif[EXIF_TAG_MAP["DateTimeDigitized"]]
-                )
-            elif EXIF_TAG_MAP["DateTime"] in exif:
-                image_date = parse_exif_datetime(exif[EXIF_TAG_MAP["DateTime"]])
-
-    if not image_date:
-        image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
+    #image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
+    image_date = " October 10 2019"
 
     return image_date
 
