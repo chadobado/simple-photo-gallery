@@ -198,7 +198,8 @@ def get_image_date(image_path):
     :return: The date the image was taken
     """
     image_date = None
-    image_date = datetime.fromtimestamp(os.path.getatime(image_path))
+    image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
+    print("Image date:"+image_date)
     return image_date
 
     if image_path.lower().endswith(".jpeg") or image_path.lower().endswith(".jpg"):
