@@ -200,7 +200,8 @@ def get_image_date(image_path):
     image_date = None
 
     #image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
-    image_date = datetime.now()
+    #image_date = datetime.now()
+    image_date = datetime.strptime(os.path.getmtime(image_path), "%a %b %d %H:%M:%S %Y")
 
     return image_date
 
