@@ -198,10 +198,10 @@ def get_image_date(image_path):
     :return: The date the image was taken
     """
     image_date = None
-
-    #image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
+    print(image_path)
+    image_date = datetime.fromtimestamp(os.path.getmtime(image_path))
     #image_date = datetime.now()
-    image_date = datetime.strptime(os.path.getmtime(image_path), "%a %b %d %H:%M:%S %Y")
+    #image_date = datetime.strptime(os.path.getmtime(image_path), "%a %b %d %H:%M:%S %Y")
 
     return image_date
 
